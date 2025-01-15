@@ -26,5 +26,8 @@ def add_gift():
     gifts.append(gift)
     return jsonify(gift), 201
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Получает порт из переменной окружения или использует 5000
+    app.run(host='0.0.0.0', port=port)        # Запускает сервер на всех интерфейсах
